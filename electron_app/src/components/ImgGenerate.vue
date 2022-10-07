@@ -15,10 +15,6 @@
                     
                     <div class="l_button button_medium button_colored" style="float:right ; " @click="generate_from_prompt">Generate</div>
 
-                    <!-- <div style="float:right;"  >
-                        <div class="l_button" @click="is_adv_options = !is_adv_options">Advanced options</div>
-                    </div> -->
-
                     <div style="float:right; margin-top: -5px;" >
                         <b-dropdown id="dropdown-form" variant="link" ref="dropdown" toggle-class="text-decoration-none" no-caret >
                         
@@ -30,29 +26,28 @@
                                 
                                 <b-form-group inline  label="" style="margin-bottom: 6px;" >
                                     <label class="mr-sm-2" style="margin-right: 8px ;" for="inline-form-custom-select-pref">Num Images: </label>
-                                    <b-form-select
-                                    v-model="num_imgs"
-                                    :options="[1,2,3,4,5,6,7,8,9,10,11,12,13,14]"
-                                    required
-                                    ></b-form-select>
+                                  <b-form-input onkeypress="return evesnt.keyCode != 13;"
+                                  size="sm"
+                                  class="mr-sm-2"
+                                  v-model.number="num_imgs"
+                                  style="max-width: 40px; float: right; margin-right: 30px;"
+                                  >
+                                  </b-form-input>
                                 </b-form-group>
 
 
                                 <b-form-group inline label=""  style="margin-bottom: 6px;">
-                                    <label class="mr-sm-2" style="margin-right: 8px ;" for="inline-form-custom-select-pref">Image Height: </label>
+                                    <label class="mr-sm-2" style="margin-right: 8px ;" for="inline-form-custom-select-pref">Size: </label>
                                     <b-form-select
                                     v-model="img_h"
                                     :options="[ 64*4 , 64*5 , 64*6, 64*7 , 64*8 , 64*9 , 64*10 , 64*11 , 64*12 ]"
                                     required
                                     ></b-form-select>
-                                </b-form-group>
-
-                                <b-form-group inline label=""  style="margin-bottom: 6px;">
-                                    <label class="mr-sm-2" style="margin-right: 8px ;" for="inline-form-custom-select-pref">Image Width: </label>
+                                    x
                                     <b-form-select
-                                    v-model="img_w"
-                                    :options="[64*4 , 64*5 , 64*6, 64*7 , 64*8 , 64*9 , 64*10 , 64*11 , 64*12 ]"
-                                    required
+                                        v-model="img_w"
+                                        :options="[64*4 , 64*5 , 64*6, 64*7 , 64*8 , 64*9 , 64*10 , 64*11 , 64*12 ]"
+                                        required
                                     ></b-form-select>
                                 </b-form-group>
 
@@ -60,7 +55,7 @@
                                 <label class="mr-sm-2" style="margin-right: 8px ;" for="inline-form-custom-select-pref">Steps: </label>
                                 <b-form-select
                                     v-model="dif_steps"
-                                    :options="[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 , 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75]"
+                                    :options="[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75]"
                                     required
                                 ></b-form-select>
                                 </b-form-group>
@@ -122,9 +117,7 @@
                         </b-dropdown>
                     </div>
 
-                    <div class="l_button button_medium" style="float:right ;margin-right: -10px; margin-top: -1px;" @click="open_arthub">Prompt Ideas</div>
-
-
+                    <div class="l_button button_white" style="color: black; margin-right: -10px; margin-top: -1px; cursor: pointer" @click="open_arthub">Prompt Ideas</div>
                     
                 </div>
                 <div v-else-if="stable_diffusion.generated_by=='txt2img'"  class="content_toolbox" style="margin-top:10px; margin-bottom:-10px;">
