@@ -1,6 +1,9 @@
+# About this fork:
+This fork of the original Diffusion Bee just changes some visual details that I don't entirely like in the original app:
+- Steps and Image number are text inputs, not selects
+
 # Diffusion Bee - Stable Diffusion GUI App for M1 Mac
 [![Twitter](https://img.shields.io/twitter/url.svg?label=Follow%20%40divamgupta&style=social&url=https%3A%2F%2Ftwitter.com%2Fdivamgupta)](https://twitter.com/divamgupta)
-
 
 ### Diffusion Bee is the easiest way to run Stable Diffusion locally on your M1 Mac. Comes with a one-click installer. No dependencies or technical knowledge needed.
 
